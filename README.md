@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/franck-gaspoz/MantisBTRestAPIClient/master/mantisbt-logo.png)
+![](https://raw.githubusercontent.com/franck-gaspoz/MantisBTRestAPIClient/master/mantisbt-logo2.png)
 
 # MantisBT REST API Client
 
