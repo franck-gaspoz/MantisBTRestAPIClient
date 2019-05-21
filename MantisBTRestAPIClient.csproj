@@ -92,7 +92,6 @@
   <ItemGroup>
     <Compile Include="Client.cs" />
     <Compile Include="ClientFactory.cs" />
-    <Compile Include="ClientTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

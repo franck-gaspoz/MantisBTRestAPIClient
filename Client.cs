@@ -4,6 +4,8 @@
 // </auto-generated>
 //----------------------
 
+//#define ASP_NET   // enable this for ASP.NET and ASP.NET MVC
+
 namespace MantisBTRestAPIClient
 {
 #pragma warning disable
@@ -712,6 +714,9 @@ namespace MantisBTRestAPIClient
         public long? Id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("summary", Required = Newtonsoft.Json.Required.Always)]
+#if ASP_NET
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+#endif
         public string Summary { get; set; }
 
         [Newtonsoft.Json.JsonProperty("reporter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -721,6 +726,9 @@ namespace MantisBTRestAPIClient
         public AccountRef Handler { get; set; }
 
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
+#if ASP_NET
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+#endif
         public string Description { get; set; }
 
         public string ToJson()
