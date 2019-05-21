@@ -17,6 +17,8 @@ Mantis connector DTO POCO NSwag toolchain swagger MIT Licence free</Description>
     <PackageIconUrl>https://raw.githubusercontent.com/franck-gaspoz/MantisBTRestAPIClient/master/mantisbt-logo.png</PackageIconUrl>
     <PackageReleaseNotes>MantisBT REST API Client for C# .NET Standard 2.0 initial version</PackageReleaseNotes>
     <NeutralLanguage>en-US</NeutralLanguage>
+    <Product>Mantis BT Rest API Client</Product>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
