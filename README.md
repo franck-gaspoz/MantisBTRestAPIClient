@@ -1,3 +1,5 @@
+![](https://raw.githubusercontent.com/franck-gaspoz/MantisBTRestAPIClient/master/mantisbt-logo.png)
+
 # MantisBT REST API Client
 
 This class library implements a C# client of the MantisBT REST API (last stable version 2.21.0), allowing to use any Mantis functionalities from a C# program.
@@ -37,7 +39,7 @@ The library is provided as a Visual Studio project for .NET Framework 4.7, build
 
 ## Sample usage
 
-First instantiate a client from the factory, providing your own HTTP client:
+First instantiate a client from the factory, providing your own HTTP client, then call an operation of the api:
 
 ```csharp
 HTTPClient httpClient = new HTTPClient();
