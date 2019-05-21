@@ -35,7 +35,9 @@ Get more info at http://NSwag.org
 
 The client can be generated using the NSwag project file nswag.nswag
 
-The library is provided as a Visual Studio project for .NET Framework 4.7, build Any CPU.
+The library is provided as a Visual Studio project for .NET Standard 2.0, however a project targeting .NET Framework can also target this library.
+
+You can recompile the source code in a class library project targeting .NET Framework 4.7, build Any CPU for instance if don't wish to be linked to the .NET Standard runtime support (it is integrated in .NET Framework since version 4.7.2, in older versions the VS compiler add extra DLLs for support).
 
 ## Sample usage
 
