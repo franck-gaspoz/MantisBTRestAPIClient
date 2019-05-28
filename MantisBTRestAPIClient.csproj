@@ -16,10 +16,34 @@ Mantis connector DTO POCO NSwag toolchain swagger MIT Licence free</Description>
     <FileVersion>1.1.1.0</FileVersion>
     <PackageIconUrl>https://raw.githubusercontent.com/franck-gaspoz/MantisBTRestAPIClient/master/mantisbt-logo.png</PackageIconUrl>
     <PackageReleaseNotes>MantisBT REST API HTTP Client for C# .NET Standard 2.0 version 1.1.1
+
+swagger schema fixed and improved. The following operations are mapping the MantisBT REST API services:
+
+- ConfigGet
+    
+    supplementary usefull methods can be found in MantisHTTPClient:
+    - GetConfigStringOption
+    - GetConfigEnumOption
+    - GetConfigEnum&lt;T&gt;
+        - where T can be ConfigPriority,ConfigSeverity,ConfigReproductibility
+    - GetConfigEnumOption&lt;T&gt;
+        - where T can be ConfigPriorities,ConfigSeverities,ConfigReproductibilities
+    
+- IssueAdd
+- IssueGet
+- IssueDelete
+
+- ProjectGet
+
+- LangGet
+
+- UserGetMe
+- UserAdd
+- UserDelete
 </PackageReleaseNotes>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Product>Mantis BT Rest API Client</Product>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>1.1.1</Version>
   </PropertyGroup>
 
