@@ -2,10 +2,10 @@
 
 # MantisBT REST API Client
 
-This class library implements a C# client of the MantisBT REST API (last stable version 2.21.0), allowing to use any Mantis functionalities from a C# program.
+This class library implements a C# client of the MantisBT REST API (last stable version 2.21.0), allowing to use any Mantis functionality from a C# program.
 Mantis data are mapped throught DTO classes written in a POCO style.
 
-The library is complete and ready to use.
+The library is almost complete and ready to use.
 It is totally free/open source/modifiable/redistribuable (see MIT licence)
 
 The following operations are mapping the MantisBT REST API services:

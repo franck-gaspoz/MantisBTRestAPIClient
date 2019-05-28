@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Franck Gaspoz</Authors>
     <Company>http://franckgaspoz.fr</Company>
-    <Description>MantisBT REST API Client for C# .NET Standard 2.0
+    <Description>MantisBT REST API HTTP Client for C# .NET Standard 2.0
 Mantis connector DTO POCO NSwag toolchain swagger MIT Licence free</Description>
     <Copyright>MIT Licence (c) Franck Gaspoz</Copyright>
     <PackageLicenseUrl>https://github.com/franck-gaspoz/MantisBTRestAPIClient/blob/master/LICENSE</PackageLicenseUrl>
@@ -12,13 +12,15 @@ Mantis connector DTO POCO NSwag toolchain swagger MIT Licence free</Description>
     <RepositoryUrl>https://github.com/franck-gaspoz/MantisBTRestAPIClient.git</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>mantisbt REST API client connector DTO POCO NSwag toolchain swagger mantis C# .NET Standard 2.0</PackageTags>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
+    <AssemblyVersion>1.1.1.0</AssemblyVersion>
+    <FileVersion>1.1.1.0</FileVersion>
     <PackageIconUrl>https://raw.githubusercontent.com/franck-gaspoz/MantisBTRestAPIClient/master/mantisbt-logo.png</PackageIconUrl>
-    <PackageReleaseNotes>MantisBT REST API Client for C# .NET Standard 2.0 initial version</PackageReleaseNotes>
+    <PackageReleaseNotes>MantisBT REST API HTTP Client for C# .NET Standard 2.0 version 1.1.1
+</PackageReleaseNotes>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Product>Mantis BT Rest API Client</Product>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

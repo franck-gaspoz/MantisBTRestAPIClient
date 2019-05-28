@@ -5,7 +5,7 @@ namespace MantisBTRestAPIClient
     /// <summary>
     /// MantisBT REST API client factory
     /// </summary>
-    public static class ClientFactory
+    public static class MantisHTTPClientFactory
     {
         /// <summary>
         /// build a new client for MantisBT REST API
@@ -13,14 +13,14 @@ namespace MantisBTRestAPIClient
         /// <param name="baseUrl">base url</param>
         /// <param name="token">security token</param>
         /// <returns>a value tuple with both a new client for the MantisBT Rest API and a new HTTPClient linked to it</returns>
-        public static (Client client,HttpClient httpClient) New(
+        public static (MantisHTTPClient client,HttpClient httpClient) New(
             string baseUrl,
             string token
             )
         {
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Add("Authorization", token);
-            return (new Client(baseUrl, httpClient), httpClient);
+            return (new MantisHTTPClient(baseUrl, httpClient), httpClient);
         }
 
         /// <summary>
@@ -30,14 +30,14 @@ namespace MantisBTRestAPIClient
         /// <param name="token">security token</param>
         /// <param name="httpClient">http client</param>
         /// <returns></returns>
-        public static Client New(
+        public static MantisHTTPClient New(
             string baseUrl,
             string token,
             HttpClient httpClient
             )
         {
             httpClient.DefaultRequestHeaders.Add("Authorization", token);
-            return new Client(baseUrl, httpClient);
+            return new MantisHTTPClient(baseUrl, httpClient);
         }
     }
 }

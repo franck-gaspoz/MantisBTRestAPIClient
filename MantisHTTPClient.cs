@@ -4,20 +4,18 @@
 // </auto-generated>
 //----------------------
 
-//#define ASP_NET   // enable this for ASP.NET and ASP.NET MVC
-
 namespace MantisBTRestAPIClient
 {
 #pragma warning disable
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "12.2.5.0 (NJsonSchema v9.13.37.0 (Newtonsoft.Json v11.0.0.0))")]
-    public partial class Client
+    public partial class MantisHTTPClient
     {
         private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
 
-        public Client(string baseUrl, System.Net.Http.HttpClient httpClient)
+        public MantisHTTPClient(string baseUrl, System.Net.Http.HttpClient httpClient)
         {
             BaseUrl = baseUrl;
             _httpClient = httpClient;
@@ -46,7 +44,7 @@ namespace MantisBTRestAPIClient
         /// <param name="id">The issue id.</param>
         /// <returns>Success with issue details</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<CreateIssueResponse> IssueGetAsync(double id)
+        public System.Threading.Tasks.Task<CreateIssueResponse> IssueGetAsync(long id)
         {
             return IssueGetAsync(id, System.Threading.CancellationToken.None);
         }
@@ -55,7 +53,7 @@ namespace MantisBTRestAPIClient
         /// <param name="id">The issue id.</param>
         /// <returns>Success with issue details</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        public CreateIssueResponse IssueGet(double id)
+        public CreateIssueResponse IssueGet(long id)
         {
             return System.Threading.Tasks.Task.Run(async () => await IssueGetAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -65,7 +63,7 @@ namespace MantisBTRestAPIClient
         /// <returns>Success with issue details</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<CreateIssueResponse> IssueGetAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<CreateIssueResponse> IssueGetAsync(long id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -243,7 +241,7 @@ namespace MantisBTRestAPIClient
         /// <param name="id">The issue id.</param>
         /// <returns>Issue deleted successfully</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task IssueDeleteAsync(double id)
+        public System.Threading.Tasks.Task IssueDeleteAsync(long id)
         {
             return IssueDeleteAsync(id, System.Threading.CancellationToken.None);
         }
@@ -252,7 +250,7 @@ namespace MantisBTRestAPIClient
         /// <param name="id">The issue id.</param>
         /// <returns>Issue deleted successfully</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        public void IssueDelete(double id)
+        public void IssueDelete(long id)
         {
             System.Threading.Tasks.Task.Run(async () => await IssueDeleteAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -262,7 +260,7 @@ namespace MantisBTRestAPIClient
         /// <returns>Issue deleted successfully</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task IssueDeleteAsync(double id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task IssueDeleteAsync(long id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -344,7 +342,7 @@ namespace MantisBTRestAPIClient
         /// <param name="user_id">The user id (default is logged in user).  This can only be set by users with access level ADMINISTRATOR.</param>
         /// <returns>Success</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<ConfigGetResponse> ConfigGetAsync(System.Collections.Generic.IEnumerable<string> option, double? project_id, double? user_id)
+        public System.Threading.Tasks.Task<ConfigGetResponse> ConfigGetAsync(System.Collections.Generic.IEnumerable<string> option, long? project_id, long? user_id)
         {
             return ConfigGetAsync(option, project_id, user_id, System.Threading.CancellationToken.None);
         }
@@ -355,7 +353,7 @@ namespace MantisBTRestAPIClient
         /// <param name="user_id">The user id (default is logged in user).  This can only be set by users with access level ADMINISTRATOR.</param>
         /// <returns>Success</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        public ConfigGetResponse ConfigGet(System.Collections.Generic.IEnumerable<string> option, double? project_id, double? user_id)
+        public ConfigGetResponse ConfigGet(System.Collections.Generic.IEnumerable<string> option, long? project_id, long? user_id)
         {
             return System.Threading.Tasks.Task.Run(async () => await ConfigGetAsync(option, project_id, user_id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -367,7 +365,7 @@ namespace MantisBTRestAPIClient
         /// <returns>Success</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<ConfigGetResponse> ConfigGetAsync(System.Collections.Generic.IEnumerable<string> option, double? project_id, double? user_id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<ConfigGetResponse> ConfigGetAsync(System.Collections.Generic.IEnumerable<string> option, long? project_id, long? user_id, System.Threading.CancellationToken cancellationToken)
         {
             if (option == null)
                 throw new System.ArgumentNullException("option");
@@ -570,10 +568,212 @@ namespace MantisBTRestAPIClient
             }
         }
 
+        /// <summary>Create an user</summary>
+        /// <param name="body">The user to add.</param>
+        /// <returns>User successfully created</returns>
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<UserAddResponse> UserAddAsync(User body)
+        {
+            return UserAddAsync(body, System.Threading.CancellationToken.None);
+        }
+
+        /// <summary>Create an user</summary>
+        /// <param name="body">The user to add.</param>
+        /// <returns>User successfully created</returns>
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        public UserAddResponse UserAdd(User body)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await UserAddAsync(body, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+
+        /// <summary>Create an user</summary>
+        /// <param name="body">The user to add.</param>
+        /// <returns>User successfully created</returns>
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        public async System.Threading.Tasks.Task<UserAddResponse> UserAddAsync(User body, System.Threading.CancellationToken cancellationToken)
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/users");
+
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "201")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            var result_ = default(UserAddResponse);
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<UserAddResponse>(responseData_, _settings.Value);
+                                return result_;
+                            }
+                            catch (System.Exception exception_)
+                            {
+                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                            }
+                        }
+                        else
+                        if (status_ == "403")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new SwaggerException("Access denied", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "503")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new SwaggerException("Mantis Offline", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+
+                        return default(UserAddResponse);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+
+        /// <summary>Delete an user</summary>
+        /// <param name="id">The user id.</param>
+        /// <returns>User deleted successfully</returns>
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task UserDeleteAsync(long id)
+        {
+            return UserDeleteAsync(id, System.Threading.CancellationToken.None);
+        }
+
+        /// <summary>Delete an user</summary>
+        /// <param name="id">The user id.</param>
+        /// <returns>User deleted successfully</returns>
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        public void UserDelete(long id)
+        {
+            System.Threading.Tasks.Task.Run(async () => await UserDeleteAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+
+        /// <summary>Delete an user</summary>
+        /// <param name="id">The user id.</param>
+        /// <returns>User deleted successfully</returns>
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        public async System.Threading.Tasks.Task UserDeleteAsync(long id, System.Threading.CancellationToken cancellationToken)
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/users/{id}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "204")
+                        {
+                            return;
+                        }
+                        else
+                        if (status_ == "403")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new SwaggerException("Access denied", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "404")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new SwaggerException("User doesn\'t exist", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "503")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new SwaggerException("Mantis Offline", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+
         /// <summary>Get information about logged in user</summary>
         /// <returns>Success</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<UserMeResponse> UserGetMeAsync()
+        public System.Threading.Tasks.Task<UserResponse> UserGetMeAsync()
         {
             return UserGetMeAsync(System.Threading.CancellationToken.None);
         }
@@ -581,7 +781,7 @@ namespace MantisBTRestAPIClient
         /// <summary>Get information about logged in user</summary>
         /// <returns>Success</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        public UserMeResponse UserGetMe()
+        public UserResponse UserGetMe()
         {
             return System.Threading.Tasks.Task.Run(async () => await UserGetMeAsync(System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -590,7 +790,7 @@ namespace MantisBTRestAPIClient
         /// <returns>Success</returns>
         /// <exception cref="SwaggerException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<UserMeResponse> UserGetMeAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<UserResponse> UserGetMeAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/users/me");
@@ -624,10 +824,10 @@ namespace MantisBTRestAPIClient
                         if (status_ == "200")
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            var result_ = default(UserMeResponse);
+                            var result_ = default(UserResponse);
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<UserMeResponse>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<UserResponse>(responseData_, _settings.Value);
                                 return result_;
                             }
                             catch (System.Exception exception_)
@@ -654,7 +854,113 @@ namespace MantisBTRestAPIClient
                             throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
 
-                        return default(UserMeResponse);
+                        return default(UserResponse);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+
+        /// <summary>Get a project</summary>
+        /// <param name="project_id">The project id.</param>
+        /// <returns>Success with project details</returns>
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<GetProjectResponse> ProjectGetAsync(long project_id)
+        {
+            return ProjectGetAsync(project_id, System.Threading.CancellationToken.None);
+        }
+
+        /// <summary>Get a project</summary>
+        /// <param name="project_id">The project id.</param>
+        /// <returns>Success with project details</returns>
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        public GetProjectResponse ProjectGet(long project_id)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await ProjectGetAsync(project_id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+
+        /// <summary>Get a project</summary>
+        /// <param name="project_id">The project id.</param>
+        /// <returns>Success with project details</returns>
+        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        public async System.Threading.Tasks.Task<GetProjectResponse> ProjectGetAsync(long project_id, System.Threading.CancellationToken cancellationToken)
+        {
+            if (project_id == null)
+                throw new System.ArgumentNullException("project_id");
+
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/projects?");
+            urlBuilder_.Append("project_id=").Append(System.Uri.EscapeDataString(ConvertToString(project_id, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Length--;
+
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            var result_ = default(GetProjectResponse);
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<GetProjectResponse>(responseData_, _settings.Value);
+                                return result_;
+                            }
+                            catch (System.Exception exception_)
+                            {
+                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                            }
+                        }
+                        else
+                        if (status_ == "403")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new SwaggerException("Access denied", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "503")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new SwaggerException("Mantis Offline", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+
+                        return default(GetProjectResponse);
                     }
                     finally
                     {
@@ -713,11 +1019,44 @@ namespace MantisBTRestAPIClient
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Id { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("project", Required = Newtonsoft.Json.Required.Always)]
+        public Identifier Project { get; set; } = new Identifier();
+
+        [Newtonsoft.Json.JsonProperty("category", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Identifier Category { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("priority", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Identifier Priority { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("severity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Identifier Severity { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("reproducibility", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Identifier Reproducibility { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Identifier Version { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("os", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Os { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("os_build", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Os_build { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("platform", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Platform { get; set; }
+
         [Newtonsoft.Json.JsonProperty("summary", Required = Newtonsoft.Json.Required.Always)]
-#if ASP_NET
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-#endif
         public string Summary { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
+        public string Description { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("steps_to_reproduce", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Steps_to_reproduce { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("additional_information", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Additional_information { get; set; }
 
         [Newtonsoft.Json.JsonProperty("reporter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public AccountRef Reporter { get; set; }
@@ -725,11 +1064,8 @@ namespace MantisBTRestAPIClient
         [Newtonsoft.Json.JsonProperty("handler", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public AccountRef Handler { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
-#if ASP_NET
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-#endif
-        public string Description { get; set; }
+        [Newtonsoft.Json.JsonProperty("files", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<UploadableFile> Files { get; set; }
 
         public string ToJson()
         {
@@ -739,6 +1075,186 @@ namespace MantisBTRestAPIClient
         public static Issue FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Issue>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UploadableFile
+    {
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        public string Name { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Always)]
+        public string Content { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static UploadableFile FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UploadableFile>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Identifier
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Id { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static Identifier FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Identifier>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Project
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Id { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        public string Name { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ProjectStatusRef Status { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Description { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Enabled { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("view_state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ViewState View_state { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("access_level", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public AccessLevel Access_level { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("versions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Version> Versions { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("categories", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Category> Categories { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("custom_fields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<CustomField> Custom_fields { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static Project FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Project>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class CustomField
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        public long Id { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        public string Name { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
+        public string Type { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("default_value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Default_value { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("possible_values", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Possible_values { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("valid_regexp", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Valid_regexp { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("length_min", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Length_min { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("length_max", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Length_max { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("access_level_r", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public AccessLevel Access_level_r { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("access_level_rw", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public AccessLevel Access_level_rw { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("display_report", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Display_report { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("display_update", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Display_update { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("display_resolved", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Display_resolved { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("display_closed", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Display_closed { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("require_report", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Require_report { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("require_update", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Require_update { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("require_resolved", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Require_resolved { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("require_closed", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Require_closed { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static CustomField FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomField>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ProjectStatusRef
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Id { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("label", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Label { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static ProjectStatusRef FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ProjectStatusRef>(data);
         }
 
     }
@@ -819,7 +1335,61 @@ namespace MantisBTRestAPIClient
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class UserMeResponse
+    public partial class User
+    {
+        [Newtonsoft.Json.JsonProperty("username", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Username { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Password { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("real_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Real_name { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Email { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Enabled { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("protected", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Protected { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("access_level", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public AccessLevel Access_level { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static User FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<User>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserAddResponse
+    {
+        [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserResponse User { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static UserAddResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAddResponse>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserResponse
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? Id { get; set; }
@@ -847,9 +1417,9 @@ namespace MantisBTRestAPIClient
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
 
-        public static UserMeResponse FromJson(string data)
+        public static UserResponse FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserMeResponse>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserResponse>(data);
         }
 
     }
@@ -858,7 +1428,7 @@ namespace MantisBTRestAPIClient
     public partial class ConfigGetResponse
     {
         [Newtonsoft.Json.JsonProperty("configs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<ConfigOption> Configs { get; set; }
+        public System.Collections.Generic.ICollection<ConfigAnyTypeOption> Configs { get; set; }
 
         public string ToJson()
         {
@@ -873,7 +1443,7 @@ namespace MantisBTRestAPIClient
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class ConfigOption
+    public partial class ConfigAnyTypeOption
     {
         [Newtonsoft.Json.JsonProperty("option", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Option { get; set; }
@@ -886,9 +1456,90 @@ namespace MantisBTRestAPIClient
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
 
-        public static ConfigOption FromJson(string data)
+        public static ConfigAnyTypeOption FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConfigOption>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConfigAnyTypeOption>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ConfigStringOption
+    {
+        [Newtonsoft.Json.JsonProperty("option", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Option { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Value { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static ConfigStringOption FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConfigStringOption>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ConfigEnumOption
+    {
+        [Newtonsoft.Json.JsonProperty("option", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Option { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ConfigEnumOptionValue> Value { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static ConfigEnumOption FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConfigEnumOption>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ConfigEnumOptionValue
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Id { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("label", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Label { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static ConfigEnumOptionValue FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConfigEnumOptionValue>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ConfigEnumOptionArray : System.Collections.ObjectModel.Collection<ConfigEnumOptionValue>
+    {
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static ConfigEnumOptionArray FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConfigEnumOptionArray>(data);
         }
 
     }
@@ -949,6 +1600,126 @@ namespace MantisBTRestAPIClient
         public static CreateIssueResponse FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CreateIssueResponse>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class GetProjectResponse
+    {
+        [Newtonsoft.Json.JsonProperty("projects", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Project> Projects { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static GetProjectResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GetProjectResponse>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AccessLevel
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Id { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("label", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Label { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static AccessLevel FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AccessLevel>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ViewState
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Id { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("label", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Label { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static ViewState FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ViewState>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Category
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Id { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static Category FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Category>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.37.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Version
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? Id { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Description { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("released", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Released { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("obsolete", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Obsolete { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("timestamp", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Timestamp { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static Version FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Version>(data);
         }
 
     }
